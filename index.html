@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Don't know about you... but I'm feeling like SHA-2!</title>
+
+    <meta name="description" content="PREFORMA">
+    <meta name="author" content="Ashley fucking Blewer">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+          <section data-background="img/awk_ballerina.gif">
+            <h1>Don't know about you... but I'm feeling like SHA-2!</h1>
+            <h6>Checksumming with Taylor Swift</h6>
+            <h6>
+              <a href="http://www.ashleyblewer.com">Ashley Blewer</a><br>
+              24 April 2015<br>
+              Personal Digital Archiving
+            </h6>
+            <h6>Post-talk note: Press 's', open up the popup, press the largest image and then use the arrow keys to move through the slides</h6>
+            <aside class="notes">
+"Nice to meet you. Where’ve you been? I can show you incredible things."
+
+So this talk is trying to reach the lowest common denominator using the most accessible pop star and perfectly nice person, Taylor Swift to explain what's the the big deal behind checksums.
+
+This talk is "Don’t Know About You… But I’m feeling like Sha-2!"
+            </aside>
+          </section>
+        </section>
+
+          <section data-background="img/hi.gif">
+            <h1>Hello.</h1>
+            <aside class="notes">
+"Um, you don’t know about me? But I bet you’d like to."
+
+And I wasn't kidding about the amount of Taylor Swift you're gonna get in the next five minutes.
+            </aside>
+          </section>
+
+          <section data-background="img/glasses_off.gif">
+            <h1>Bro...</h1>
+            <aside class="notes">
+CHECKSUMMING! "It's difficult but it's real." So what do people mean when they are like "Bro, do you even checksum your digital preservation assets?" 
+            </aside>
+          </section>
+
+          <section data-background="img/tables_turn.gif">
+            <h1>Bro...</h1>
+            <aside class="notes">
+In archives, we use checksums a bit differently than how they are usually used in the tech world, so I want to give an overview of what it looks like "from the other side" to help archivists understand ~what it all means~. "This is the golden age!"     
+            </aside>
+          </section>
+
+          <section data-background="img/sick_beat2.gif">
+            <h3>c29c11407b4b6600f6fa47018008b147</h3>
+            <aside class="notes">
+Answer: IT'S JUST A STRING OF JIBBERISH. That's all it is. "It's beautiful, wonderful, don't you ever change." And as long as that string of jibberish is the same right now as it is when you check up on that file in 10 years, you're good.
+            </aside>
+          </section>
+
+          <section data-background="img/scared.gif">
+            <h3>and you're good!</h3>
+            <aside class="notes">
+...you're good.
+            </aside>
+          </section>
+
+          <section data-background="img/evil.gif">
+            <h3>and you're good!<span style="font-size:80px">*</span></h3>
+            <aside class="notes">
+Kinda.... you're good*
+            </aside>
+          </section>
+
+          <section data-background="img/style.gif">
+            <h1>Concepts</h1>
+            <aside class="notes">
+Um. "Next chapter".
+
+Let's talk concepts.
+            </aside>
+          </section>
+
+          <section data-background="img/car.gif">
+            <h3>Concepts: Security</h3>
+            <aside class="notes">
+Let's talk about... security.
+            </aside>
+          </section>
+
+          <section data-background="img/what.gif">
+            <h3>“You go talk to your friends talk to my friends talk to me”</h3>
+            <aside class="notes">
+Security-wise, checksums are used to prevent a man-in-the-middle attack by using what I like to think of as the Taylor Swift method of breakup success. I made a diagram! To represent this better. 
+            </aside>
+          </section>
+
+          <section data-background="img/what.gif">
+            <img src="img/guide.png" />
+            <aside class="notes">
+So, you can see here... encrypted passwords or other sensitive information can pass through a network to another location without that information being compromised. “You go talk to your friends talk to my friends talk to me”
+
+The way this is successful is if information is passed through other channels but never directly, even if hackers are "standing by you, waiting at your back door," your data will still be safe because plaintext information is never transferred directly, and that obfuscation and abstraction happens just like this. Except instead of your friends and my friends, its checksums and salting.
+            </aside>
+          </section>
+
+          <section data-background="img/never_ever.gif">
+            <h1></h1>
+            <aside class="notes">
+"Because we are never, ever getting back together. Like, ever."
+            </aside>
+          </section>
+
+          <section data-background="img/caught.gif">
+            <h1>Concepts: Salting</h1>
+            <aside class="notes">
+I mentioned Salting. Salt is a random string, which is linked to existing password hashes and then hashed again for extra layers of protection. The salt value and resulting hash is then stored in the database. You are able to un-encrypt but the information, without each other, can't be un-encrypted. 
+            </aside>
+          </section>
+
+          <section data-background="img/confused.gif">
+            <h1>Concepts: Collision Attack</h1>
+            <aside class="notes">
+A collision attack attempts to find two arbritary outputs which produce the same hash value, hence, a collision (two files existing with the same value). This does come up in archives and is a problem. And seems to happen more than it should. "At least, that's what people say."
+            </aside>
+          </section>
+
+          <section data-background="img/jonas_shocked.gif">
+            <h1>Concepts: "Broken"</h1>
+            <aside class="notes">
+Security-wise, these things don't last "forever & always". So you hear, oh, “___ is broken.” MD5, SHA-1. It's because the technology that keeps these file fingerprints secure can be corrupted if the algorithm can be decrypted by computers. “This slope is treacherous, this path is dangerous”  It's the ability to break the code at all, as well as the amount of time and money necessary to cause that break to happen. It follows a sort of Moore's Law pattern: it gets faster and cheaper every day. Info security is a moving target.
+            </aside>
+          </section>
+
+        <section>
+          <section data-background="img/phone_water.gif">
+            <h1>SHA</h1>
+            <aside class="notes">
+So we have SHA. SHA stands for Secure Hash Algorithm. It was developed by the National Institute of Standards and Technology (NIST) as a U.S. Federal Information Processing Standard (FIPS). SHA is very common, the lower, less secure versions (SHA-1) are used to generate small unique identifiers, like git commits. More complex algorithms are used in security. Git uses SHA-1 so you have unique commits. HTTPS used to use SHA-1 and now uses SHA-2 (That's SHA-256) to determine if you are legitimately on the website you intend to be on via the SSL certificate. 
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="img/erm.gif">
+            <h1>CRC</h1>
+            <aside class="notes">
+CRC (cyclic redundancy check) was invented by W. Wesley Peterson in 1961 but “32, and still growing up now.” CRC-32 is a common version, 32 stands for 32 polynomial lengths. Lots of limitations here, not good for security, can be faked easily. But it is used in file format verification, Matroska video wrapper files being an example of that.
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="img/creepin.gif">
+            <h1>MD5</h1>
+            <aside class="notes">
+MD5! "You look like my next mistake!" We see MD5 a lot in archives, at least in my experience. MD5 stands for Message Digest algorithm 5, and was invented by US cryptographer Professor Ronald Rivest in 1991 to replace the old MD4 standard.
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="img/cats.gif">
+            <h1>Back to archives-land</h1>
+            <aside class="notes">
+Fortunately for archival purposes, usually security isn't an issue and it's okay if checksums are "broken" from a security standpoint as long as they work from a fixity standpoint (file integrity, file location authentication -- are the files there and are they what they used to be?). "Hey, isn't this easy?"
+
+The core principal still stands in infosec and in digipres though: you want the assurance that a file has no changed in any way, even ways that seem invisible. And that's why implementing this strategy into a preservation workflow is important.
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/oh_no.gif">
+            <h1>But...</h1>
+            <aside class="notes">
+"But that doesn't mean we're out of the woods yet." I don't have time to get into this but faking checksums or random non-validation or incorrect validation even when a file does change is still a thing. It's "trouble trouble trouble". Or maybe "it's like trying to solve a crossword puzzle but there's no right answer". Sorry, that deserves much longer discussion. Next time. But in the meantime... "Back up, baby, back up". 
+            </aside>
+          </section>
+        </section> 
+        
+        <section>
+          <section data-background="img/tree.gif">
+            <h1>The End</h1>
+            <aside class="notes">
+
+            </aside>
+          </section>
+        </section>            
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
