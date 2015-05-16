@@ -6,7 +6,7 @@
 
     <title>Don't know about you... but I'm feeling like SHA-2!</title>
 
-    <meta name="description" content="PREFORMA">
+    <meta name="description" content="T-Swift">
     <meta name="author" content="Ashley fucking Blewer">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,6 +43,26 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
 
+          <section data-background="img/bowtie.gif">
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section data-background="img/22.gif">
+            <aside class="notes">
+I gave this talk about a month ago. I managed to do 20 slides and 20 lyrics in 5 minutes. I was shooting for 40 slides and 40 song lyrics in 10 minutes, which was a bit extreme. So I'll be moving quickly. “this time, I’m telling you…”
+            </aside>
+          </section>
+
+          <section data-background="img/hi.gif">
+            <h1>Hello.</h1>
+            <aside class="notes">
+"Nice to meet you. Where’ve you been? I can show you incredible things."
+
+I'm using Taylor Swift to explain what's the the big deal behind cryptographic hashing functions.
+            </aside>
+          </section>
+
           <section data-background="img/awk_ballerina.gif">
             <h1>Don't know about you... but I'm feeling like SHA-2!</h1>
             <h6>Checksumming with Taylor Swift</h6>
@@ -53,16 +73,14 @@
             </h6>
             <!-- <h6>Post-talk note: Press 's', open up the popup, press the largest image and then use the arrow keys to move through the slides</h6> -->
             <aside class="notes">
-"Nice to meet you. Where’ve you been? I can show you incredible things."
-
-So this talk is trying to reach the lowest common denominator using the most accessible pop star and perfectly nice person, Taylor Swift to explain what's the the big deal behind checksums.
-
 This talk is "Don’t Know About You… But I’m feeling like Sha-2!"
             </aside>
           </section>
         </section>
 
-          <section data-background="img/hi.gif">
+
+
+          <section data-background="img/know_what_youre_doing.gif">
             <h1>Hello.</h1>
             <aside class="notes">
 "Um, you don’t know about me? But I bet you’d like to."
@@ -74,155 +92,344 @@ And I wasn't kidding about the amount of Taylor Swift you're gonna get in the ne
           <section data-background="img/glasses_off.gif">
             <h1>Bro...</h1>
             <aside class="notes">
-CHECKSUMMING! "It's difficult but it's real." So what do people mean when they are like "Bro, do you even checksum your digital preservation assets?" 
+CHECKSUMMING! "It's difficult but it's real." So what do people mean when they are like "Bro, are you even salting that hash?" 
             </aside>
           </section>
 
           <section data-background="img/tables_turn.gif">
-            <h1>Bro...</h1>
+
             <aside class="notes">
-In archives, we use checksums a bit differently than how they are usually used in the tech world, so I want to give an overview of what it looks like "from the other side" to help archivists understand ~what it all means~. "This is the golden age!"     
-            </aside>
-          </section>
-
-          <section data-background="img/sick_beat2.gif">
-            <h3>c29c11407b4b6600f6fa47018008b147</h3>
-            <aside class="notes">
-Answer: IT'S JUST A STRING OF JIBBERISH. That's all it is. "It's beautiful, wonderful, don't you ever change." And as long as that string of jibberish is the same right now as it is when you check up on that file in 10 years, you're good.
-            </aside>
-          </section>
-
-          <section data-background="img/scared.gif">
-            <h3>and you're good!</h3>
-            <aside class="notes">
-...you're good.
-            </aside>
-          </section>
-
-          <section data-background="img/evil.gif">
-            <h3>and you're good!<span style="font-size:80px">*</span></h3>
-            <aside class="notes">
-Kinda.... you're good*
-            </aside>
-          </section>
-
-          <section data-background="img/style.gif">
-            <h1>Concepts</h1>
-            <aside class="notes">
-Um. "Next chapter".
-
-Let's talk concepts.
-            </aside>
-          </section>
-
-          <section data-background="img/car.gif">
-            <h3>Concepts: Security</h3>
-            <aside class="notes">
-Let's talk about... security.
-            </aside>
-          </section>
-
-          <section data-background="img/what.gif">
-            <h3>“You go talk to your friends talk to my friends talk to me”</h3>
-            <aside class="notes">
-Security-wise, checksums are used to prevent a man-in-the-middle attack by using what I like to think of as the Taylor Swift method of breakup success. I made a diagram! To represent this better. 
-            </aside>
-          </section>
-
-          <section data-background="img/what.gif">
-            <img src="img/guide.png" />
-            <aside class="notes">
-So, you can see here... encrypted passwords or other sensitive information can pass through a network to another location without that information being compromised. “You go talk to your friends talk to my friends talk to me”
-
-The way this is successful is if information is passed through other channels but never directly, even if hackers are "standing by you, waiting at your back door," your data will still be safe because plaintext information is never transferred directly, and that obfuscation and abstraction happens just like this. Except instead of your friends and my friends, its checksums and salting.
-            </aside>
-          </section>
-
-          <section data-background="img/never_ever.gif">
-            <h1></h1>
-            <aside class="notes">
-"Because we are never, ever getting back together. Like, ever."
-            </aside>
-          </section>
-
-          <section data-background="img/caught.gif">
-            <h1>Concepts: Salting</h1>
-            <aside class="notes">
-I mentioned Salting. Salt is a random string, which is linked to existing password hashes and then hashed again for extra layers of protection. The salt value and resulting hash is then stored in the database. You are able to un-encrypt but the information, without each other, can't be un-encrypted. 
-            </aside>
-          </section>
-
-          <section data-background="img/confused.gif">
-            <h1>Concepts: Collision Attack</h1>
-            <aside class="notes">
-A collision attack attempts to find two arbritary outputs which produce the same hash value, hence, a collision (two files existing with the same value). This does come up in archives and is a problem. And seems to happen more than it should. "At least, that's what people say."
-            </aside>
-          </section>
-
-          <section data-background="img/jonas_shocked.gif">
-            <h1>Concepts: "Broken"</h1>
-            <aside class="notes">
-Security-wise, these things don't last "forever & always". So you hear, oh, “___ is broken.” MD5, SHA-1. It's because the technology that keeps these file fingerprints secure can be corrupted if the algorithm can be decrypted by computers. “This slope is treacherous, this path is dangerous”  It's the ability to break the code at all, as well as the amount of time and money necessary to cause that break to happen. It follows a sort of Moore's Law pattern: it gets faster and cheaper every day. Info security is a moving target.
+"Magic, madness, heaven, sin." Cryptography is serious business, but I think we can get to a common baseline of understanding fairly easily. And T-Swift helps. "This is the golden age!"    
             </aside>
           </section>
 
         <section>
-          <section data-background="img/phone_water.gif">
-            <h1>SHA</h1>
+          <section data-background="img/cat.gif">
+
             <aside class="notes">
-So we have SHA. SHA stands for Secure Hash Algorithm. It was developed by the National Institute of Standards and Technology (NIST) as a U.S. Federal Information Processing Standard (FIPS). SHA is very common, the lower, less secure versions (SHA-1) are used to generate small unique identifiers, like git commits. More complex algorithms are used in security. Git uses SHA-1 so you have unique commits. HTTPS used to use SHA-1 and now uses SHA-2 (That's SHA-256) to determine if you are legitimately on the website you intend to be on via the SSL certificate. 
+So what is a checksum?
             </aside>
           </section>
-        </section>
+        </section> 
+
+        <section>
+          <section data-background="img/sick_beat2.gif">
+
+            <aside class="notes">
+ IT'S JUST A STRING OF NONSENSE. That's all it is. "It's beautiful, wonderful, don't you ever change." And as long as this string is the same right now as it is when you check up on it later, you're good.
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/evil.gif">
+
+            <aside class="notes">
+Kinda...
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/haters.gif">
+
+            <aside class="notes">
+Except, y'know, like, hacking. "Haters gonna hate."
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/blankspace.gif">
+
+            <aside class="notes">
+But we aren't there yet.
+            </aside>
+          </section>
+        </section> 
 
         <section>
           <section data-background="img/erm.gif">
-            <h1>CRC</h1>
+
             <aside class="notes">
-CRC (cyclic redundancy check) was invented by W. Wesley Peterson in 1961 but “32, and still growing up now.” CRC-32 is a common version, 32 stands for 32 polynomial lengths. Lots of limitations here, not good for security, can be faked easily. But it is used in file format verification, Matroska video wrapper files being an example of that.
+"Next chapter."
             </aside>
           </section>
-        </section>
+        </section>   
 
         <section>
-          <section data-background="img/creepin.gif">
-            <h1>MD5</h1>
+          <section data-background="img/heart_or_burger.gif">
+
             <aside class="notes">
-MD5! "You look like my next mistake!" We see MD5 a lot in archives, at least in my experience. MD5 stands for Message Digest algorithm 5, and was invented by US cryptographer Professor Ronald Rivest in 1991 to replace the old MD4 standard.
+First, let's talk about some concepts.
             </aside>
           </section>
-        </section>
+        </section> 
 
         <section>
-          <section data-background="img/cats.gif">
-            <h1>Back to archives-land</h1>
+          <section data-background="img/flaws.gif">
+            <img src="img/guide.png" />
             <aside class="notes">
-Fortunately for archival purposes, usually security isn't an issue and it's okay if checksums are "broken" from a security standpoint as long as they work from a fixity standpoint (file integrity, file location authentication -- are the files there and are they what they used to be?). "Hey, isn't this easy?"
+Security-wise, checksums are used to prevent a man-in-the-middle attack by using this Taylor Swift method of breakup success. I made a diagram! To represent this better. So, you can see here... encrypted passwords or other sensitive information can pass through a network to another location without that information being compromised. “You go talk to your friends talk to my friends talk to me”  Cuz we certainly aren't talking, right? WE BROKE UP!
+            </aside>
+          </section>
+        </section> 
 
-The core principal still stands in infosec and in digipres though: you want the assurance that a file has no changed in any way, even ways that seem invisible. And that's why implementing this strategy into a preservation workflow is important.
+        <section>
+          <section data-background="img/flaws.gif">
+
+            <aside class="notes">
+The way this is successful is if information is passed through other channels but never directly, it doesn't matter if hackers are "standing by you, waiting at your back door," your data will still be safe because plaintext information is never transferred directly, and that obfuscation and abstraction happens just like this. Except instead of your friends and my friends, its checksums and salting.
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/tree.gif">
+
+            <aside class="notes">
+“So many walls, I can't break thru.”
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/caught.gif">
+            <h1>Salting</h1>
+            <aside class="notes">
+I mentioned Salting. Salt is a random string, which is linked to existing password hashes and then hashed again for extra layers of protection. Like friends protecting you from bad exes. The salt value and resulting hash is then stored in the database. You are able to encrypt that information, without each other, it cannot be un-encrypted. So you can "shake it off."
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/confused.gif">
+            <h1>Collision Attacks</h1>
+            <aside class="notes">
+A collision attack attempts to find two arbitrary outputs which produce the same hash value -- hence, a collision (two files existing with the same value). "A simple complication, miscommunication leads to fallout..." There's vulnerability here, if someone can fake your checksum, they can get to the information they want.  
+            </aside>
+          </section>
+        </section>  
+
+        <section>
+          <section data-background="img/sorry.gif">
+
+            <aside class="notes">
+"'Cause when you're fifteen and somebody tells you they love you, you're gonna believe them." And when that SSL certificate reads green, you want to believe it. But you have to watch out for security leaks all the time. Like heartbreakers.
+            </aside>
+          </section>
+        </section>  
+
+        <section>
+          <section data-background="img/jonas_shocked.gif">
+            <h1>BROKEN</h1>
+            <aside class="notes">
+Security-wise, these things don't last "forever & always." So you hear, oh, “_this format_ is broken.” MD5, SHA-1. What does that mean? It's because the technology that keeps these file fingerprints secure can be corrupted if the algorithm can be decrypted by computers. “This slope is treacherous, this path is dangerous” 
             </aside>
           </section>
         </section> 
 
         <section>
           <section data-background="img/oh_no.gif">
-            <h1>But...</h1>
+
             <aside class="notes">
-"But that doesn't mean we're out of the woods yet." I don't have time to get into this but faking checksums or random non-validation or incorrect validation even when a file does change is still a thing. It's "trouble trouble trouble". Or maybe "it's like trying to solve a crossword puzzle but there's no right answer". Sorry, that deserves much longer discussion. Next time. But in the meantime... "Back up, baby, back up". 
+1. t's the ability to break the code at all, and 2. as well as the amount of time and money necessary to cause that break to happen. If an algorithm would take modern computers years to decrypt, it's still pretty secure. It's "my Achilles heel." It follows a sort of Moore's Law pattern: it gets faster and cheaper every day. Info security is a moving target. "These walls that they put up will fall down."
             </aside>
           </section>
         </section> 
-        
-        <section>
-          <section data-background="img/tree.gif">
-            <h1>The End</h1>
-            <aside class="notes">
 
+        <section>
+          <section data-background="img/never_ever.gif">
+
+            <aside class="notes">
+So when you're shipping these things to production or investigating what might be a good fit for you, maybe you were thinking they "were forever ever and I used to say, "Never say never...""
             </aside>
           </section>
-        </section>            
-      </div>
+        </section>   
 
+        <section>
+          <section data-background="img/scared.gif">
+
+            <aside class="notes">
+But these things get busted every day.
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/exhausting.gif">
+
+            <aside class="notes">
+"And I'm like... "I just... I mean this is exhausting, you know?""
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/zooey.gif">
+
+            <aside class="notes">
+Girl, I know.
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/newroom.gif">
+            <h1>Algorithms!</h1>
+            <aside class="notes">
+About some of the algorithms...
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/picnic.gif">
+            <h1>CRC</h1>
+            <aside class="notes">
+CRC! This stands for Cycle Redundancy Check. "We were both young when I first saw you." The CRC was invented by W. Wesley Peterson way back in 1961; CRC32 is the work of several researchers and was published in 1975. “32, and still growing up now.” It's a lot older and more basic of a process, so obviously there are lots of limitations here... not good for security, can be faked easily. But it is used in file format verification, Matroska files being an example of this, using a self-check mechanism.
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/phone_water.gif">
+            <h1>SHA</h1>
+            <aside class="notes">
+So we have SHA. SHA stands for Secure Hash Algorithm. It was developed by the National Institute of Standards and Technology (NIST) as a U.S. Federal Information Processing Standard (FIPS). 
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/pool.gif">
+
+            <aside class="notes">
+SHA is very common, but it gets a little complicated because there are different numbers meaning different things.
+
+The lower, less secure versions (SHA-1) are used to generate small unique identifiers, like git commits. Git uses SHA-1 so you have unique commits. 
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/over_it.gif">
+
+            <aside class="notes">
+More complex algorithms are used in elsewhere. 
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/lookup.gif">
+
+            <aside class="notes">
+HTTPS used to use SHA-1, but that's been broken for a while. "All this time, how could you not know, baby?"
+
+It now uses SHA-2 (That's the SHA-256 version, not the SHA-512 version -- the algorithm is basically the same but there are different version) to determine if you are legitimately on the website you intend to be on via the SSL certificate. 
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/trouble.gif">
+            <h1>MD5</h1>
+            <aside class="notes">
+Then we have MD5... we see MD5 a lot in archives, at least in my experience. "You look like my next mistake!"  BitTorrent files also use MD5 for fixity and file integrity. "I think I know where you belong, I think I know it's with me." 
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/creepin.gif">
+
+            <aside class="notes">
+MD5 stands for Message Digest algorithm 5, and was invented by cryptographer Professor Ronald Rivest in 1991 to replace the old MD4 standard. It's broken, though. Sorry. Busted. 
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/cats.gif">
+
+            <aside class="notes">
+So I work in the archives field, where, for the most part, usually security isn't an issue and it's okay if checksums are "broken" from a security standpoint as long as they work from a fixity standpoint. "Nothing's gonna change, not for me and you, not before I knew how much I had to lose" 
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/jump.gif">
+            <aside class="notes">
+Ummm...file integrity, file location authentication -- are the files there and are they what they used to be?. "Hey, isn't this easy?"
+            </aside>
+          </section>
+        </section> 
+
+        <section>
+          <section data-background="img/what.gif">
+
+            <aside class="notes">
+You can use checksums to abstract larger files away for quicker access and validation. “When you said you needed space, what?”
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/bball.gif">
+
+            <aside class="notes">
+If you're thinking about checksums because of security, you gotta go in "head first, fearless."
+            </aside>
+          </section>
+        </section>   
+
+        <section>
+          <section data-background="img/christmas.gif">
+
+            <aside class="notes">
+The core principal still stands regardless of whether your work in information security or in digital preservation though: you want the assurance that a file has not changed in any way, even ways that seem invisible. "At least, that's what people say." And that's why this stuff is so important. From a digital preservation stance, you wanna "back up, baby, back up." 
+            </aside>
+          </section>
+        </section>  
+
+        <section>
+          <section data-background="img/sobbing.gif">
+
+            <aside class="notes">
+But for security, things are more like "its 2am and I'm cursing your name." and you end up spending more time "dreaming, instead of sleeping." Or maybe wary of people that do so.
+            </aside>
+          </section>
+        </section>  
+
+        <section>
+          <section data-background="img/bug.gif">
+
+            <aside class="notes">
+So we aren't "out of the woods yet." I don't have time to get into all the details and problems with checksum, but  you could say it's "trouble trouble trouble". Or maybe "it's like trying to solve a crossword puzzle but there's no right answer". 
+            </aside>
+          </section>
+        </section>  
+
+        <section>
+          <section data-background="img/car.gif">
+
+            <aside class="notes">
+Sorry, anything related to cryptography is incredibly complex mathematically and should be left to experts. It's complicated stuff! "Is this is my head? I don't know what to think!" But while you're already out there... "The battle's in your hands now". 
+            </aside>
+          </section>
+        </section>  
+
+        <section>
+          <section data-background="img/finale.gif">
+            <h1>END!</h1>
+            <aside class="notes">
+END
+            </aside>
+          </section>
+        </section>  
+      </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>
